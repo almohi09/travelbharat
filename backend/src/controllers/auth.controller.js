@@ -9,11 +9,22 @@ function signToken(admin) {
 
 async function register(req, res) {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, inviteCode } = req.body;
     const exists = await Admin.findOne({ email: (email || "").toLowerCase() });
     if (exists) return fail(res, "Email already exists", 409);
 
-    const admin = await Admin.create({ name, email, password });
+    const adminCount = await Admin.countDocuments();
+    if (adminCount > 0) {
+      if (!env.adminInviteCode) {
+        return fail(res, "Admin registration is closed. Contact the owner.", 403);
+      }
+      if (String(inviteCode || "").trim() !== env.adminInviteCode) {
+        return fail(res, "Invalid invite code", 403);
+      }
+    }
+
+    const role = adminCount === 0 ? "superadmin" : "admin";
+    const admin = await Admin.create({ name, email, password, role });
     return ok(res, { token: signToken(admin), user: { id: admin._id, name: admin.name, email: admin.email, role: admin.role } }, "Registered", 201);
   } catch (error) {
     return fail(res, error.message, 400);

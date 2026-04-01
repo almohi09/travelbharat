@@ -10,6 +10,7 @@ npm run dev
 Backend `.env` (required for image uploads via ImageKit):
 
 ```env
+ADMIN_INVITE_CODE=your_private_invite_code
 IMAGEKIT_PUBLIC_KEY=your_public_key
 IMAGEKIT_PRIVATE_KEY=your_private_key
 IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_imagekit_id

@@ -35,7 +35,7 @@ export default function LoginPage() {
           {error ? <div className="alert alert-error">{error}</div> : null}
         </form>
         <p className="muted" style={{ marginTop: 12 }}>
-          No account? <Link to="/register" style={{ color: "var(--primary)", fontWeight: 700 }}>Register</Link>
+          Need admin access? <Link to="/register" style={{ color: "var(--primary)", fontWeight: 700 }}>Use invite registration</Link>
         </p>
       </section>
     </main>

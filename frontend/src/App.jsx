@@ -32,7 +32,7 @@ function Shell({ children }) {
       <header className="topbar">
         <div className="topbar-inner">
           <Link className="brand" to="/">
-            TravelBharat
+            <span className="brand-mark">TB</span> TravelBharat
           </Link>
           <nav className="nav-links">
             <Link className="nav-link" to="/states">
@@ -44,9 +44,11 @@ function Shell({ children }) {
             <Link className="nav-link" to="/search">
               Search
             </Link>
-            <Link className="nav-link" to="/admin/dashboard">
-              Admin
-            </Link>
+            {user ? (
+              <Link className="nav-link" to="/admin/dashboard">
+                Admin
+              </Link>
+            ) : null}
             {user ? (
               <button className="btn btn-ghost" onClick={logout} type="button">
                 Logout
