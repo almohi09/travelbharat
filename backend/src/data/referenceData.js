@@ -1,0 +1,63 @@
+const statesWithCities = [
+  { name: "Andhra Pradesh", description: "Temples, coastline, and cultural heritage.", cities: ["Amaravati", "Visakhapatnam", "Vijayawada", "Tirupati"] },
+  { name: "Arunachal Pradesh", description: "Eastern Himalayan landscapes and monasteries.", cities: ["Itanagar", "Tawang", "Ziro", "Pasighat"] },
+  { name: "Assam", description: "Tea gardens, Brahmaputra valley, and wildlife.", cities: ["Dispur", "Guwahati", "Dibrugarh", "Jorhat"] },
+  { name: "Bihar", description: "Buddhist circuits and ancient learning centers.", cities: ["Patna", "Gaya", "Bodh Gaya", "Muzaffarpur"] },
+  { name: "Chhattisgarh", description: "Waterfalls, forests, and tribal culture.", cities: ["Raipur", "Bilaspur", "Durg", "Jagdalpur"] },
+  { name: "Goa", description: "Beaches, heritage churches, and nightlife.", cities: ["Panaji", "Margao", "Vasco da Gama", "Mapusa"] },
+  { name: "Gujarat", description: "White desert, temples, and lion sanctuary.", cities: ["Gandhinagar", "Ahmedabad", "Surat", "Vadodara"] },
+  { name: "Haryana", description: "Historic sites and fast-growing urban hubs.", cities: ["Chandigarh", "Gurugram", "Faridabad", "Panipat"] },
+  { name: "Himachal Pradesh", description: "Hill stations, trekking, and mountain culture.", cities: ["Shimla", "Dharamshala", "Manali", "Kullu"] },
+  { name: "Jharkhand", description: "Forests, waterfalls, and tribal heritage.", cities: ["Ranchi", "Jamshedpur", "Dhanbad", "Deoghar"] },
+  { name: "Karnataka", description: "Tech cities, heritage ruins, and coasts.", cities: ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi"] },
+  { name: "Kerala", description: "Backwaters, beaches, and hill destinations.", cities: ["Thiruvananthapuram", "Kochi", "Kozhikode", "Alappuzha"] },
+  { name: "Madhya Pradesh", description: "Wildlife parks and historical monuments.", cities: ["Bhopal", "Indore", "Gwalior", "Jabalpur"] },
+  { name: "Maharashtra", description: "Coastal forts, caves, and major metros.", cities: ["Mumbai", "Nagpur", "Pune", "Nashik"] },
+  { name: "Manipur", description: "Loktak lake and rich cultural traditions.", cities: ["Imphal", "Bishnupur", "Thoubal", "Churachandpur"] },
+  { name: "Meghalaya", description: "Living root bridges and scenic plateaus.", cities: ["Shillong", "Tura", "Jowai", "Cherrapunji"] },
+  { name: "Mizoram", description: "Mountainous terrain and vibrant local culture.", cities: ["Aizawl", "Lunglei", "Champhai", "Kolasib"] },
+  { name: "Nagaland", description: "Hills, festivals, and indigenous traditions.", cities: ["Kohima", "Dimapur", "Mokokchung", "Wokha"] },
+  { name: "Odisha", description: "Temple heritage, beaches, and wetlands.", cities: ["Bhubaneswar", "Cuttack", "Puri", "Rourkela"] },
+  { name: "Punjab", description: "Spiritual heritage and agricultural heartland.", cities: ["Chandigarh", "Amritsar", "Ludhiana", "Jalandhar"] },
+  { name: "Rajasthan", description: "Deserts, forts, and royal architecture.", cities: ["Jaipur", "Udaipur", "Jodhpur", "Jaisalmer"] },
+  { name: "Sikkim", description: "Himalayan monasteries and alpine landscapes.", cities: ["Gangtok", "Namchi", "Gyalshing", "Mangan"] },
+  { name: "Tamil Nadu", description: "Temple architecture, beaches, and culture.", cities: ["Chennai", "Madurai", "Coimbatore", "Tiruchirappalli"] },
+  { name: "Telangana", description: "Historic forts and modern urban centers.", cities: ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"] },
+  { name: "Tripura", description: "Palaces, temples, and green landscapes.", cities: ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar"] },
+  { name: "Uttar Pradesh", description: "Spiritual cities and Mughal-era monuments.", cities: ["Lucknow", "Varanasi", "Agra", "Prayagraj"] },
+  { name: "Uttarakhand", description: "Pilgrimage routes and Himalayan valleys.", cities: ["Dehradun", "Haridwar", "Rishikesh", "Nainital"] },
+  { name: "West Bengal", description: "Cultural landmarks, mangroves, and hills.", cities: ["Kolkata", "Siliguri", "Durgapur", "Howrah"] },
+  { name: "Andaman and Nicobar Islands", description: "Island beaches and marine biodiversity.", cities: ["Sri Vijaya Puram", "Port Blair", "Swaraj Dweep", "Diglipur", "Car Nicobar"] },
+  { name: "Chandigarh", description: "Planned city and administrative center.", cities: ["Chandigarh"] },
+  { name: "Dadra and Nagar Haveli and Daman and Diu", description: "Coastal enclaves and Portuguese-era heritage.", cities: ["Daman", "Diu", "Silvassa"] },
+  { name: "Delhi", description: "National capital with major heritage landmarks.", cities: ["New Delhi", "Delhi", "Dwarka", "Rohini"] },
+  { name: "Jammu and Kashmir", description: "Valleys, lakes, and mountain destinations.", cities: ["Srinagar", "Jammu", "Anantnag", "Baramulla"] },
+  { name: "Ladakh", description: "High-altitude deserts and monasteries.", cities: ["Leh", "Kargil"] },
+  { name: "Lakshadweep", description: "Coral islands and lagoons.", cities: ["Kavaratti", "Agatti", "Minicoy"] },
+  { name: "Puducherry", description: "French colonial heritage and seafronts.", cities: ["Puducherry", "Karaikal", "Mahe", "Yanam"] }
+];
+
+const categories = [
+  { name: "Heritage", slug: "heritage" },
+  { name: "Nature", slug: "nature" },
+  { name: "Adventure", slug: "adventure" },
+  { name: "Wildlife", slug: "wildlife" },
+  { name: "Spiritual", slug: "spiritual" },
+  { name: "Beach", slug: "beach" },
+  { name: "Hill Station", slug: "hill-station" },
+  { name: "Pilgrimage", slug: "pilgrimage" },
+  { name: "Museum", slug: "museum" },
+  { name: "Fort", slug: "fort" },
+  { name: "National Park", slug: "national-park" },
+  { name: "Culture", slug: "culture" },
+  { name: "Gastronomy", slug: "gastronomy" },
+  { name: "Wellness", slug: "wellness" },
+  { name: "Shopping", slug: "shopping" },
+  { name: "Entertainment", slug: "entertainment" },
+  { name: "Wedding", slug: "wedding" }
+];
+
+module.exports = {
+  statesWithCities,
+  categories
+};
